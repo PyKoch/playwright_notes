@@ -18,4 +18,11 @@ time.sleep(5)
 ```
 
 ## Record your login data and use them in your next run of codegen
-Find the instructions here: https://playwright.dev/python/docs/codegen
+Save the login data in a json file called auth.json
+```
+playwright codegen bonnis.managebac.com --save-storage=auth.json
+```
+Now run the same command again, this time loggin into the website using the stored data: 
+```
+playwright codegen bonnis.managebac.com --load-storage=auth.json
+```
