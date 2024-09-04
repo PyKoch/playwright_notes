@@ -28,11 +28,14 @@ playwright codegen bonnis.managebac.com --load-storage=auth.json
 ```
 
 Troubleshooting: 
-Should the auth.json file not be found by the program, then give the full path to file, e.g. instead of 
+Should the auth.json file not be found by the program, then give the full path to file. 
+Replace 
 ```
 context = browser.new_context(storage_state="auth.json")
 ```
-write: 
+with
 ```
 context = browser.new_context(storage_state="/Users/funky_coder/Downloads/auth.json")
 ```
+**Remember to delete the auth.json file when you are done to be safe on the web!**
+
