@@ -26,3 +26,13 @@ Now run the same command again, this time loggin into the website using the stor
 ```
 playwright codegen bonnis.managebac.com --load-storage=auth.json
 ```
+
+Troubleshooting: 
+Should the auth.json file not be found by the program, then give the full path to file, e.g. instead of 
+```
+context = browser.new_context(storage_state="auth.json")
+```
+write: 
+```
+context = browser.new_context(storage_state="/Users/funky_coder/Downloads/auth.json")
+```
