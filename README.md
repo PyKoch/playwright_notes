@@ -12,4 +12,8 @@ Copy and paste the recorded code into a Python program before closing the browse
 Run the Python script and watch it replay all the steps. 
 
 ## Keep the website open for 5s before it is closed
-Use time.sleep(5) before the browser is closed
+Before the browser is closed use 
+```
+time.sleep(5)
+```
+
