@@ -17,4 +17,5 @@ Before the browser is closed use
 time.sleep(5)
 ```
 
-## 
+## Record your login data and use them in your next run of codegen
+Find the instructions here: https://playwright.dev/python/docs/codegen
