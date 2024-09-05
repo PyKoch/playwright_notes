@@ -39,3 +39,5 @@ context = browser.new_context(storage_state="/Users/funky_coder/Downloads/auth.j
 ```
 **Remember to delete the auth.json file when you are done to be safe on the web!**
 
+## Play around with the locators and get at least five of them to work: 
+https://playwright.dev/python/docs/api/class-locator
