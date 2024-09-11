@@ -39,5 +39,77 @@ context = browser.new_context(storage_state="/Users/funky_coder/Downloads/auth.j
 ```
 **Remember to delete the auth.json file when you are done to be safe on the web!**
 
-## Play around with the locators and get at least five of them to work: 
+
+## CSS locators: 
+[Here](https://youtu.be/UXLnkeYHZlY?si=UtZuqCxW0qt88L6g) is a helpful video for using css locators. 
+Important points of information (from the video): 
+
+Use the inspect function (right click/two finger click on your browser), then [use the arrow](https://youtu.be/UXLnkeYHZlY?si=JBqcVrhniYRmtOt0&t=401) to inspect a particular element on your screen like your username field. 
+
+This would be the code for opening a website: 
+```
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=False)
+    page = browser.new_page()
+    page.goto('https://demo.automationtesting.in/Index.html')
+```
+
+### CSS locators using the id:
+When your field has an id, the code is a little simpler. 
+The inspector gives you the id of the email address field: <img width="544" alt="id" src="https://github.com/user-attachments/assets/18bd1bed-e5bd-4f90-83ba-57b909c81e72">
+
+The generic code used for an id using CSS selectors is: 
+```
+page.wait_for_selector('#name_of_id')
+```
+
+So here this would become: 
+```
+page.wait_for_selector('#email')
+```
+
+Assign to a variable and type in the email address gives you: 
+```
+email_field = page.wait_for_selector('#email')
+email_field.type('test@gmail.com')
+```
+Then you just click the arrow button on the right: 
+```
+enter_btn = page.wait_for_selector('#enterimg')
+enter_btn.click()
+page.wait_for_timeout(5000)
+```
+
+### CSS locators using attributes
+Use the following URL for this example: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+
+This time there is no id for the username.
+<img width="399" alt="no_id" src="https://github.com/user-attachments/assets/51da7e6d-b4db-46c1-8c2e-161bbe698dae">
+
+The generic reference to the CSS locator using attributes is: 
+```
+tagname[attribute="value"]
+```
+Based on the image above this would become: 
+```
+page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    username = page.wait_for_selector('input[name="username"]')
+    username.type('Admin')
+```
+You can then do the same for the password and for the login button. 
+
+Note that the tagname for the login button is 'button': 
+```
+button = page.wait_for_selector('button[type="submit"]')
+button.click()
+```
+Instead of time.sleep() you can use 
+```
+page.wait_for_timeout(1000)
+```
+The time is set in milliseconds (1000 --> 1s) 
+
+For more information see: 
 https://playwright.dev/python/docs/api/class-locator
