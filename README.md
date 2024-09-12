@@ -111,5 +111,14 @@ page.wait_for_timeout(1000)
 ```
 The time is set in milliseconds (1000 --> 1s) 
 
+## XPath locators: 
+[This video](https://youtu.be/-KmfzY3P1vI?si=ymM1c1tPeLXqM2Yf) explains the use of xpath locators. 
+
+The syntax for usiung relative xpaths is: 
+```
+//tagname[@attributename="value"]
+```
+
+
 For more information see: 
 https://playwright.dev/python/docs/api/class-locator
