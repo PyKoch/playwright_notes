@@ -95,8 +95,8 @@ tagname[attribute="value"]
 Based on the image above this would become: 
 ```
 page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    username = page.wait_for_selector('input[name="username"]')
-    username.type('Admin')
+username = page.wait_for_selector('input[name="username"]')
+username.type('Admin')
 ```
 You can then do the same for the password and for the login button. 
 
@@ -117,6 +117,24 @@ The time is set in milliseconds (1000 --> 1s)
 The syntax for usiung relative xpaths is: 
 ```
 //tagname[@attributename="value"]
+```
+
+Applied to the website used above you get the following code: 
+```
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=False)
+    page = browser.new_page()
+    page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    username = page.wait_for_selector('//input[@name="username"]')
+    username.type('Admin')
+    password = page.wait_for_selector('//input[@name="password"]')
+    password.type('admin123')
+    page.wait_for_timeout(1000)
+    button = page.wait_for_selector('//button[@type="submit"]')
+    button.click()
+    page.wait_for_timeout(3000) # This is just so you can see what is happening. 
 ```
 
 
