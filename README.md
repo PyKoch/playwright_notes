@@ -159,5 +159,12 @@ forgotton_pw = page.wait_for_selector('//p[text()="Forgot your password? "]')
 forgotton_pw.click()
 ```
 
+## XPath locators using the contain method: 
+### 1. on attributes
+The general syntax for finding an attribute that contains a specific value is: 
+```
+attributes - //tagname[contains(@attribute,"value")]
+```
+So here this would be for the 
 For more information see: 
 https://playwright.dev/python/docs/api/class-locator
