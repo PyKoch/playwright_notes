@@ -137,6 +137,27 @@ with sync_playwright() as p:
     page.wait_for_timeout(3000) # This is just so you can see what is happening. 
 ```
 
+## XPath locators using displayed text: 
+
+On the website above there are many links. One of them is for users forgetting their password.
+<img width="483" alt="Forgot" src="https://github.com/user-attachments/assets/00b91a76-0400-49c4-8a36-a69a8b94a171">
+
+While you can use any of the methods above to locate and then click that link, you may also locate the element by text. The underlined black text in the html needs to be copied. 
+<img width="667" alt="Forgot_txt" src="https://github.com/user-attachments/assets/c39db551-5ec4-4127-8e4d-df4379ea1c62">
+
+The syntax for using xpaths and text is: 
+```
+//tagname[text()="text"]
+```
+So here this would be: 
+```
+//p[text()="Forgot your password? "]
+```
+In context this would be: 
+```
+forgotton_pw = page.wait_for_selector('//p[text()="Forgot your password? "]')
+forgotton_pw.click()
+```
 
 For more information see: 
 https://playwright.dev/python/docs/api/class-locator
