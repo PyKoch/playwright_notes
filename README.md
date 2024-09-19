@@ -165,6 +165,20 @@ The general syntax for finding an attribute that contains a specific value is:
 ```
 attributes - //tagname[contains(@attribute,"value")]
 ```
-So here this would be for the 
+So here I could apply this to the User input field
+```
+user_field = page.wait_for_selector('//input[contains(@placeholder,"User")]')
+```
+### 2. on text contained in a string on the screen
+The general syntax for finding an attribute that contains a specific value is: 
+```
+text - //tagname[contains(text(),"value")]
+```
+For this to work, the actual text needs to be black in the html section. Otherwise it will not work. 
+```
+user_field = page.wait_for_selector('//label[contains(text(),"User")]')
+```
+
+
 For more information see: 
 https://playwright.dev/python/docs/api/class-locator
