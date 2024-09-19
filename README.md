@@ -165,7 +165,7 @@ The general syntax for finding an attribute that contains a specific value is:
 ```
 attributes - //tagname[contains(@attribute,"value")]
 ```
-So here I could apply this to the User input field
+So here I could apply this to the user input field with the placeholder "Username": 
 ```
 user_field = page.wait_for_selector('//input[contains(@placeholder,"User")]')
 ```
