@@ -179,6 +179,28 @@ For this to work, the actual text needs to be black in the html section. Otherwi
 user_field = page.wait_for_selector('//label[contains(text(),"User")]')
 ```
 
+## XPath locators using the starts-with or ends-with method: 
+```
+starts-with - //tagname[starts-with(@attribute, "value")]
+```
+So here this would translate to: 
+```
+user_field = page.wait_for_selector('//input[starts-with(@placeholder,"User")]')
+```
 
+ends-with uses the same syntax: 
+```
+ends-with - //tagname[ends-with(@attribute, "value")]
+```
+
+## Using 'family relationships'
+There's also the option of working with family relationships in the html. 
+For more information watch Prasanth Test Architect [here](https://youtu.be/-KmfzY3P1vI?si=WPU_KocJ3v8Y5nWg&t=1242). 
+```
+parent - //tagname[@id = "xy"]/parent::input[]
+child - //tagname[@id = "xy"]/child::input[]
+ancestor -  //tagname[@id = "xy"]/ancestor::input[]
+sibling - //td[text()="Microsoft"]//following-sibling:: td[2]
+```
 For more information see: 
 https://playwright.dev/python/docs/api/class-locator
